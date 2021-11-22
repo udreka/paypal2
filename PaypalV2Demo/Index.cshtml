@@ -1,0 +1,50 @@
+@{
+    ViewBag.Title = "Udreka - Paypal Payments";
+    @model List<string>
+}
+   
+<div id="loginOptionBox" class="text-center">        
+    <div id="subheading" class="jumbotron text-center">
+        <h3>Pay securely with PayPal</h3>
+    </div>
+
+    <!-- Order Details  -->
+    <div class="row">
+        <div class ="col-md-2"></div>
+        <div class ="col-md-8">
+        
+        <div class="h2 text-center" style="border:solid;border-color:dimgrey;margin:20px;padding:60px;">Order Details
+            <div class="h5">Shirt ..... $0.50</div>
+            <div class="h5">Shoes ..... $0.90</div>            
+            <div class="h5">Tax ........ $0.15</div>
+            <div class="h5">Shipping ... $0.10</div>
+
+            <span class="h2" style="padding:80px;">Total: $1.65</span>
+
+        </div>
+
+        </div>
+        <div class ="col-md-2"></div>        
+    </div>
+
+            
+    <div class="btn" onclick="CallPaypal();" ><img src="~/images/paypal.png" /></div>
+
+    <div class="h5">Make a Test Payment using Latest V2 Checkout</div>
+
+    <!-- display messagesto the payer -->
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (string res in Model)
+        {
+            <div class="h4">@res</div>              
+        }
+    }    
+  
+</div>
+
+<script> 
+    function CallPaypal() {
+        window.location.href = '@Url.Action("Paypalvtwo")';
+    }    
+</script>
